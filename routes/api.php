@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,7 @@ Route::group(['middleware'=>'api','prefix'=>'auth'],function($router){
     Route::get('/profile',[AuthController::class,'profile']);
     
 });
+
+Route::post('/books/store', [BookController::class, 'store']);
+Route::put('/books/update/{id}', [BookController::class, 'update']);  // For updating a book
+Route::delete('/books/delete/{id}', [BookController::class, 'destroy']);  // For deleting a book
